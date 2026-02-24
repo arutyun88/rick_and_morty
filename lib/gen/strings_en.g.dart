@@ -37,21 +37,8 @@ class TranslationsEn with BaseTranslations<AppLocale, Translations> implements T
 	TranslationsEn $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsEn(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsNavEn nav = _TranslationsNavEn._(_root);
 	@override late final _TranslationsSettingsEn settings = _TranslationsSettingsEn._(_root);
 	@override late final _TranslationsTabsEn tabs = _TranslationsTabsEn._(_root);
-}
-
-// Path: nav
-class _TranslationsNavEn implements TranslationsNavRu {
-	_TranslationsNavEn._(this._root);
-
-	final TranslationsEn _root; // ignore: unused_field
-
-	// Translations
-	@override String get characters => 'Characters';
-	@override String get favorites => 'Favorites';
-	@override String get settings => 'Settings';
 }
 
 // Path: settings
@@ -61,6 +48,8 @@ class _TranslationsSettingsEn implements TranslationsSettingsRu {
 	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Settings';
+	@override late final _TranslationsSettingsThemeEn theme = _TranslationsSettingsThemeEn._(_root);
 	@override late final _TranslationsSettingsLanguageEn language = _TranslationsSettingsLanguageEn._(_root);
 	@override String get system => 'System';
 }
@@ -77,6 +66,19 @@ class _TranslationsTabsEn implements TranslationsTabsRu {
 	@override String get settings => 'Settings';
 }
 
+// Path: settings.theme
+class _TranslationsSettingsThemeEn implements TranslationsSettingsThemeRu {
+	_TranslationsSettingsThemeEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Theme';
+	@override String get system => 'System';
+	@override String get light => 'Light';
+	@override String get dark => 'Dark';
+}
+
 // Path: settings.language
 class _TranslationsSettingsLanguageEn implements TranslationsSettingsLanguageRu {
 	_TranslationsSettingsLanguageEn._(this._root);
@@ -84,6 +86,7 @@ class _TranslationsSettingsLanguageEn implements TranslationsSettingsLanguageRu 
 	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Language';
 	@override String get name => 'English';
 	@override String get code => 'en';
 }
@@ -96,9 +99,12 @@ class _TranslationsSettingsLanguageEn implements TranslationsSettingsLanguageRu 
 extension on TranslationsEn {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'nav.characters' => 'Characters',
-			'nav.favorites' => 'Favorites',
-			'nav.settings' => 'Settings',
+			'settings.title' => 'Settings',
+			'settings.theme.title' => 'Theme',
+			'settings.theme.system' => 'System',
+			'settings.theme.light' => 'Light',
+			'settings.theme.dark' => 'Dark',
+			'settings.language.title' => 'Language',
 			'settings.language.name' => 'English',
 			'settings.language.code' => 'en',
 			'settings.system' => 'System',

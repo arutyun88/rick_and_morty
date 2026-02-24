@@ -1,11 +1,14 @@
 {
-    "nav": {
-        "characters": "Персонажи",
-        "favorites": "Избранное",
-        "settings": "Настройки"
-    },
     "settings": {
+        "title": "Настройки",
+        "theme": {
+            "title": "Тема",
+            "system": "Системная",
+            "light": "Светлая",
+            "dark": "Тёмная"
+        },
         "language": {
+            "title": "Язык",
             "name": "Русский",
             "code": "ru"
         },

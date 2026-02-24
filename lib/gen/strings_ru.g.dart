@@ -40,27 +40,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
 
 	// Translations
-	late final TranslationsNavRu nav = TranslationsNavRu._(_root);
 	late final TranslationsSettingsRu settings = TranslationsSettingsRu._(_root);
 	late final TranslationsTabsRu tabs = TranslationsTabsRu._(_root);
-}
-
-// Path: nav
-class TranslationsNavRu {
-	TranslationsNavRu._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// ru: 'Персонажи'
-	String get characters => 'Персонажи';
-
-	/// ru: 'Избранное'
-	String get favorites => 'Избранное';
-
-	/// ru: 'Настройки'
-	String get settings => 'Настройки';
 }
 
 // Path: settings
@@ -70,6 +51,11 @@ class TranslationsSettingsRu {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// ru: 'Настройки'
+	String get title => 'Настройки';
+
+	late final TranslationsSettingsThemeRu theme = TranslationsSettingsThemeRu._(_root);
 	late final TranslationsSettingsLanguageRu language = TranslationsSettingsLanguageRu._(_root);
 
 	/// ru: 'Системный'
@@ -94,6 +80,27 @@ class TranslationsTabsRu {
 	String get settings => 'Настройки';
 }
 
+// Path: settings.theme
+class TranslationsSettingsThemeRu {
+	TranslationsSettingsThemeRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// ru: 'Тема'
+	String get title => 'Тема';
+
+	/// ru: 'Системная'
+	String get system => 'Системная';
+
+	/// ru: 'Светлая'
+	String get light => 'Светлая';
+
+	/// ru: 'Тёмная'
+	String get dark => 'Тёмная';
+}
+
 // Path: settings.language
 class TranslationsSettingsLanguageRu {
 	TranslationsSettingsLanguageRu._(this._root);
@@ -101,6 +108,9 @@ class TranslationsSettingsLanguageRu {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// ru: 'Язык'
+	String get title => 'Язык';
 
 	/// ru: 'Русский'
 	String get name => 'Русский';
@@ -117,9 +127,12 @@ class TranslationsSettingsLanguageRu {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'nav.characters' => 'Персонажи',
-			'nav.favorites' => 'Избранное',
-			'nav.settings' => 'Настройки',
+			'settings.title' => 'Настройки',
+			'settings.theme.title' => 'Тема',
+			'settings.theme.system' => 'Системная',
+			'settings.theme.light' => 'Светлая',
+			'settings.theme.dark' => 'Тёмная',
+			'settings.language.title' => 'Язык',
 			'settings.language.name' => 'Русский',
 			'settings.language.code' => 'ru',
 			'settings.system' => 'Системный',

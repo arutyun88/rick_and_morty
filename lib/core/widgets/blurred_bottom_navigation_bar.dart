@@ -51,17 +51,17 @@ class BlurredBottomNavigationBar extends StatelessWidget {
                 NavigationDestination(
                   icon: const Icon(Icons.people_outline),
                   selectedIcon: const Icon(Icons.people),
-                  label: t.nav.characters,
+                  label: t.tabs.characters,
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.star_border),
                   selectedIcon: const Icon(Icons.star),
-                  label: t.nav.favorites,
+                  label: t.tabs.favorites,
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.settings_outlined),
                   selectedIcon: const Icon(Icons.settings),
-                  label: t.nav.settings,
+                  label: t.tabs.settings,
                 ),
               ],
             ),

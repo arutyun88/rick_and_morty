@@ -1,11 +1,14 @@
 {
-    "nav": {
-        "characters": "Characters",
-        "favorites": "Favorites",
-        "settings": "Settings"
-    },
     "settings": {
+        "title": "Settings",
+        "theme": {
+            "title": "Theme",
+            "system": "System",
+            "light": "Light",
+            "dark": "Dark"
+        },
         "language": {
+            "title": "Language",
             "name": "English",
             "code": "en"
         },
