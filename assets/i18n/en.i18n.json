@@ -1,0 +1,14 @@
+{
+    "settings": {
+        "language": {
+            "name": "English",
+            "code": "en"
+        },
+        "system": "System"
+    },
+    "tabs": {
+        "characters": "Characters",
+        "favorites": "Favorites",
+        "settings": "Settings"
+    }
+}

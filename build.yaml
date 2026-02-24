@@ -1,0 +1,11 @@
+targets:
+  $default:
+    builders:
+      slang_build_runner:
+        enabled: false
+        generate_for:
+          - assets/i18n/**
+        options:
+          input_directory: assets/i18n
+          base_locale: ru
+          fallback_locale: en

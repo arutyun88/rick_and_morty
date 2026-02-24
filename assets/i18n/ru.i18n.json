@@ -1,0 +1,14 @@
+{
+    "settings": {
+        "language": {
+            "name": "Русский",
+            "code": "ru"
+        },
+        "system": "Системный"
+    },
+    "tabs": {
+        "characters": "Персонажи",
+        "favorites": "Избранное",
+        "settings": "Настройки"
+    }
+}

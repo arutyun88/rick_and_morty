@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "slang watch",
+            "command": "while true; do dart run slang watch; done",
+            "runOptions": {
+                "runOn": "folderOpen",
+                "instanceLimit": 1
+            },
+            "presentation": {
+                "reveal": "silent",
+                "panel": "new"
+            }
+        }
+    ]
+}
