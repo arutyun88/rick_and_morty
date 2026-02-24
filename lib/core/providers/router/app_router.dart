@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/core/providers/router/root_shell.dart';
 import 'package:rick_and_morty/features/characters/characters_flow.dart';
 import 'package:rick_and_morty/features/favorites/favorites_flow.dart';
-import 'package:rick_and_morty/features/settings/settings_flow.dart';
+import 'package:rick_and_morty/features/settings/presentation/settings_flow.dart';
 
 final routerProvider = Provider<GoRouter>(
   (ref) => GoRouter(
