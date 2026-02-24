@@ -1,4 +1,9 @@
 {
+    "nav": {
+        "characters": "Characters",
+        "favorites": "Favorites",
+        "settings": "Settings"
+    },
     "settings": {
         "language": {
             "name": "English",

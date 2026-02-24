@@ -37,8 +37,21 @@ class TranslationsEn with BaseTranslations<AppLocale, Translations> implements T
 	TranslationsEn $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsEn(meta: meta ?? this.$meta);
 
 	// Translations
+	@override late final _TranslationsNavEn nav = _TranslationsNavEn._(_root);
 	@override late final _TranslationsSettingsEn settings = _TranslationsSettingsEn._(_root);
 	@override late final _TranslationsTabsEn tabs = _TranslationsTabsEn._(_root);
+}
+
+// Path: nav
+class _TranslationsNavEn implements TranslationsNavRu {
+	_TranslationsNavEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get characters => 'Characters';
+	@override String get favorites => 'Favorites';
+	@override String get settings => 'Settings';
 }
 
 // Path: settings
@@ -83,6 +96,9 @@ class _TranslationsSettingsLanguageEn implements TranslationsSettingsLanguageRu 
 extension on TranslationsEn {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
+			'nav.characters' => 'Characters',
+			'nav.favorites' => 'Favorites',
+			'nav.settings' => 'Settings',
 			'settings.language.name' => 'English',
 			'settings.language.code' => 'en',
 			'settings.system' => 'System',

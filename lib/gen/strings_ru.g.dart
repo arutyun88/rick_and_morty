@@ -40,8 +40,27 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
 
 	// Translations
+	late final TranslationsNavRu nav = TranslationsNavRu._(_root);
 	late final TranslationsSettingsRu settings = TranslationsSettingsRu._(_root);
 	late final TranslationsTabsRu tabs = TranslationsTabsRu._(_root);
+}
+
+// Path: nav
+class TranslationsNavRu {
+	TranslationsNavRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// ru: 'Персонажи'
+	String get characters => 'Персонажи';
+
+	/// ru: 'Избранное'
+	String get favorites => 'Избранное';
+
+	/// ru: 'Настройки'
+	String get settings => 'Настройки';
 }
 
 // Path: settings
@@ -98,6 +117,9 @@ class TranslationsSettingsLanguageRu {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
+			'nav.characters' => 'Персонажи',
+			'nav.favorites' => 'Избранное',
+			'nav.settings' => 'Настройки',
 			'settings.language.name' => 'Русский',
 			'settings.language.code' => 'ru',
 			'settings.system' => 'Системный',

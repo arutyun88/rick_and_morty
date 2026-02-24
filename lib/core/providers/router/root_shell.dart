@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rick_and_morty/core/widgets/blurred_bottom_navigation_bar.dart';
 
 class RootShell extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -14,24 +15,9 @@ class RootShell extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       body: navigationShell,
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white.withAlpha(70),
+      bottomNavigationBar: BlurredBottomNavigationBar(
         selectedIndex: navigationShell.currentIndex,
-        onDestinationSelected: (index) => navigationShell.goBranch(index),
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.people),
-            label: 'Characters',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.star),
-            label: 'Favorites',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
+        onItemTapped: (index) => navigationShell.goBranch(index),
       ),
     );
   }

@@ -1,4 +1,9 @@
 {
+    "nav": {
+        "characters": "Персонажи",
+        "favorites": "Избранное",
+        "settings": "Настройки"
+    },
     "settings": {
         "language": {
             "name": "Русский",

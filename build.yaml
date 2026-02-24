@@ -9,3 +9,4 @@ targets:
           input_directory: assets/i18n
           base_locale: ru
           fallback_locale: en
+          timestamp: true
