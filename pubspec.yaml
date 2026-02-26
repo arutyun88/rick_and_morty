@@ -16,7 +16,7 @@ dependencies:
   riverpod_annotation: ^4.0.2
 
   # Networking
-  graphql_flutter: ^5.2.1
+  http: ^1.6.0
 
   # Local storage
   drift: ^2.31.0
