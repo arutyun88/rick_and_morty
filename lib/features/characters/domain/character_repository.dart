@@ -1,7 +1,10 @@
 import 'package:rick_and_morty/core/database/app_database.dart';
+import 'package:rick_and_morty/core/database/dao/character_dao.dart';
 import 'package:rick_and_morty/core/models/page_entity.dart';
 import 'package:rick_and_morty/features/characters/domain/character_api.dart';
 import 'package:rick_and_morty/features/characters/domain/entity/character_entity.dart';
+
+enum SortOrder { name, status, species }
 
 class CharacterRepository {
   final CharacterApi _api;
@@ -37,6 +40,21 @@ class CharacterRepository {
         info: const PageInfo(count: 0, pages: 0, next: null, prev: null),
       );
     }
+  }
+
+  Future<List<CharacterEntity>> getFavoriteCharacters({
+    SortOrder sortOrder = SortOrder.name,
+  }) async {
+    final ids = await _database.favoriteDao.getIds();
+    if (ids.isEmpty) return [];
+
+    final orderBy = switch (sortOrder) {
+      SortOrder.name => CharacterSortColumn.name,
+      SortOrder.status => CharacterSortColumn.status,
+      SortOrder.species => CharacterSortColumn.species,
+    };
+    final cached = await _database.characterDao.getByIdsOrdered(ids, orderBy: orderBy);
+    return cached.map(_dataToCharacter).toList();
   }
 
   Character _characterToData(CharacterEntity character) => Character(

@@ -28,4 +28,23 @@ class CharacterDao extends DatabaseAccessor<AppDatabase> with _$CharacterDaoMixi
     if (limit != null) query = query..limit(limit, offset: offset ?? 0);
     return query.get();
   }
+
+  Future<List<Character>> getByIdsOrdered(
+    List<int> ids, {
+    CharacterSortColumn orderBy = CharacterSortColumn.name,
+  }) async {
+    if (ids.isEmpty) return [];
+    var query = select(characters)..where((t) => t.id.isIn(ids));
+    query = query
+      ..orderBy([
+        switch (orderBy) {
+          CharacterSortColumn.name => (t) => OrderingTerm.asc(t.name),
+          CharacterSortColumn.status => (t) => OrderingTerm.asc(t.status),
+          CharacterSortColumn.species => (t) => OrderingTerm.asc(t.species),
+        },
+      ]);
+    return query.get();
+  }
 }
+
+enum CharacterSortColumn { name, status, species }
