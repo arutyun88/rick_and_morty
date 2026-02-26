@@ -11,5 +11,6 @@ final characterApiProvider = Provider<CharacterApi>((ref) {
 final characterRepositoryProvider = Provider<CharacterRepository>((ref) {
   return CharacterRepository(
     api: ref.watch(characterApiProvider),
+    database: ref.watch(databaseProvider),
   );
 });
