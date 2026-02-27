@@ -3,6 +3,7 @@ import 'package:rick_and_morty/core/providers/data/data_providers.dart';
 import 'package:rick_and_morty/features/characters/data/rest_character_api.dart';
 import 'package:rick_and_morty/features/characters/domain/character_api.dart';
 import 'package:rick_and_morty/features/characters/domain/character_repository.dart';
+import 'package:rick_and_morty/features/favorites/domain/favorite_repository.dart';
 
 final characterApiProvider = Provider<CharacterApi>((ref) {
   return RestCharacterApi(ref.watch(httpClientProvider));
@@ -13,4 +14,14 @@ final characterRepositoryProvider = Provider<CharacterRepository>((ref) {
     api: ref.watch(characterApiProvider),
     database: ref.watch(databaseProvider),
   );
+});
+
+final favoriteRepositoryProvider = Provider<FavoriteRepository>((ref) {
+  return FavoriteRepository(
+    database: ref.watch(databaseProvider),
+  );
+});
+
+final favoriteIdsProvider = StreamProvider<List<int>>((ref) {
+  return ref.watch(favoriteRepositoryProvider).watchFavoriteIds();
 });

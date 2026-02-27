@@ -5,9 +5,11 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BlurredAppBar({
     super.key,
     required this.title,
+    this.actions,
   });
 
   final Widget title;
+  final List<Widget>? actions;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -20,6 +22,7 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
       scrolledUnderElevation: 0,
       flexibleSpace: const BlurredAppBarBackground(),
       title: title,
+      actions: actions,
     );
   }
 }

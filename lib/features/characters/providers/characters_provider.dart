@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rick_and_morty/features/characters/domain/character_repository.dart';
 import 'package:rick_and_morty/features/characters/domain/entity/character_entity.dart';
 import 'package:rick_and_morty/features/characters/providers/providers.dart';
+import 'package:rick_and_morty/features/favorites/domain/favorite_repository.dart';
 
 part 'characters_provider.freezed.dart';
 
@@ -23,13 +24,16 @@ sealed class CharactersState with _$CharactersState {
 }
 
 class CharactersNotifier extends Notifier<CharactersState> {
-  CharacterRepository get _repository => ref.read(characterRepositoryProvider);
+  CharacterRepository get _characterRepository => ref.read(characterRepositoryProvider);
+  FavoriteRepository get _favoriteRepository => ref.read(favoriteRepositoryProvider);
 
   @override
-  CharactersState build() => const CharactersState.loading();
+  CharactersState build() {
+    Future.microtask(() => fetch());
+    return const CharactersState.loading();
+  }
 
   Future<void> fetch() async {
-    state = const CharactersState.loading();
     await _fetch(1, append: false);
   }
 
@@ -58,17 +62,13 @@ class CharactersNotifier extends Notifier<CharactersState> {
       CharactersError() => <CharacterEntity>[],
     };
 
-    if (append) {
-      state = switch (state) {
-        CharactersData state => state.copyWith(isLoadingMore: true),
-        _ => state,
-      };
-    } else {
-      state = const CharactersState.loading();
-    }
+    state = switch (state) {
+      CharactersData state => state.copyWith(isLoadingMore: true),
+      _ => state,
+    };
 
     try {
-      final result = await _repository.getCharacters(page: page);
+      final result = await _characterRepository.getCharacters(page: page);
 
       state = CharactersState.data(
         characters: append ? [...characters, ...result.items] : result.items,

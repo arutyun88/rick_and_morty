@@ -18,5 +18,27 @@
         "characters": "Characters",
         "favorites": "Favorites",
         "settings": "Settings"
+    },
+    "characters": {
+        "title": "Characters",
+        "offline_message": "No internet connection.\nCheck your connection and try\u00A0again.",
+        "retry": "Retry",
+        "detail": {
+            "status": "Status",
+            "species": "Species",
+            "type": "Type",
+            "gender": "Gender",
+            "origin": "Origin",
+            "location": "Location"
+        }
+    },
+    "favorites": {
+        "title": "Favorites",
+        "sort": "Sort",
+        "sortByName": "By name",
+        "sortByStatus": "By status",
+        "sortBySpecies": "By species",
+        "empty": "No favorite characters",
+        "emptyHint": "Add characters by tapping the star"
     }
 }

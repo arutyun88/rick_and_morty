@@ -42,6 +42,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final TranslationsSettingsRu settings = TranslationsSettingsRu._(_root);
 	late final TranslationsTabsRu tabs = TranslationsTabsRu._(_root);
+	late final TranslationsCharactersRu characters = TranslationsCharactersRu._(_root);
+	late final TranslationsFavoritesRu favorites = TranslationsFavoritesRu._(_root);
 }
 
 // Path: settings
@@ -78,6 +80,56 @@ class TranslationsTabsRu {
 
 	/// ru: 'Настройки'
 	String get settings => 'Настройки';
+}
+
+// Path: characters
+class TranslationsCharactersRu {
+	TranslationsCharactersRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// ru: 'Персонажи'
+	String get title => 'Персонажи';
+
+	/// ru: 'Нет подключения к интернету. Проверьте соединение и попробуйте снова.'
+	String get offline_message => 'Нет подключения к интернету.\nПроверьте соединение и попробуйте снова.';
+
+	/// ru: 'Повторить'
+	String get retry => 'Повторить';
+
+	late final TranslationsCharactersDetailRu detail = TranslationsCharactersDetailRu._(_root);
+}
+
+// Path: favorites
+class TranslationsFavoritesRu {
+	TranslationsFavoritesRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// ru: 'Избранное'
+	String get title => 'Избранное';
+
+	/// ru: 'Сортировка'
+	String get sort => 'Сортировка';
+
+	/// ru: 'По имени'
+	String get sortByName => 'По имени';
+
+	/// ru: 'По статусу'
+	String get sortByStatus => 'По статусу';
+
+	/// ru: 'По виду'
+	String get sortBySpecies => 'По виду';
+
+	/// ru: 'Нет избранных персонажей'
+	String get empty => 'Нет избранных персонажей';
+
+	/// ru: 'Добавьте персонажей, нажав на звёздочку'
+	String get emptyHint => 'Добавьте персонажей, нажав на звёздочку';
 }
 
 // Path: settings.theme
@@ -119,6 +171,33 @@ class TranslationsSettingsLanguageRu {
 	String get code => 'ru';
 }
 
+// Path: characters.detail
+class TranslationsCharactersDetailRu {
+	TranslationsCharactersDetailRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// ru: 'Статус'
+	String get status => 'Статус';
+
+	/// ru: 'Вид'
+	String get species => 'Вид';
+
+	/// ru: 'Тип'
+	String get type => 'Тип';
+
+	/// ru: 'Пол'
+	String get gender => 'Пол';
+
+	/// ru: 'Происхождение'
+	String get origin => 'Происхождение';
+
+	/// ru: 'Локация'
+	String get location => 'Локация';
+}
+
 /// The flat map containing all translations for locale <ru>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -139,6 +218,22 @@ extension on Translations {
 			'tabs.characters' => 'Персонажи',
 			'tabs.favorites' => 'Избранное',
 			'tabs.settings' => 'Настройки',
+			'characters.title' => 'Персонажи',
+			'characters.offline_message' => 'Нет подключения к интернету.\nПроверьте соединение и попробуйте снова.',
+			'characters.retry' => 'Повторить',
+			'characters.detail.status' => 'Статус',
+			'characters.detail.species' => 'Вид',
+			'characters.detail.type' => 'Тип',
+			'characters.detail.gender' => 'Пол',
+			'characters.detail.origin' => 'Происхождение',
+			'characters.detail.location' => 'Локация',
+			'favorites.title' => 'Избранное',
+			'favorites.sort' => 'Сортировка',
+			'favorites.sortByName' => 'По имени',
+			'favorites.sortByStatus' => 'По статусу',
+			'favorites.sortBySpecies' => 'По виду',
+			'favorites.empty' => 'Нет избранных персонажей',
+			'favorites.emptyHint' => 'Добавьте персонажей, нажав на звёздочку',
 			_ => null,
 		};
 	}
